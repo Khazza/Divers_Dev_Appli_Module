@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron text-center bg-danger text-white">
+            <h1 class="display-4">Bienvenue sur notre site de restauration!</h1>
+            <p class="lead">Commandez vos plats préférés et profitez d'une livraison rapide.</p>
+        </div>
+        
+    <h2>Catégories</h2>
+    <div class="row">
+    {% for categorie in categories %}
+        <div class="col-md-4 mb-4">
+            <div class="card category-card">
+                <img src="{{ asset('img/category/' ~ categorie.image) }}" class="card-img-top" alt="{{ categorie.libelle }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ categorie.libelle }}</h5>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+    <h2>Plats populaires</h2>
+    <div class="row">
+    {% for plat in plats %}
+        <div class="col-md-4 mb-4">
+            <div class="card food-card">
+                <img src="{{ asset('img/food/' ~ plat.image) }}" class="card-img-top" alt="{{ plat.libelle }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ plat.libelle }}</h5>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
